@@ -1,0 +1,52 @@
+<div class="container mt-4 mb-4">
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="list-group">
+        <li class="list-group-item">
+          類別
+          <ul class="list-group">
+            <li class="list-group-item">副類別</li>
+            <li class="list-group-item">副類別</li>
+            <li class="list-group-item">副類別</li>
+            <li class="list-group-item">副類別</li>
+          </ul>
+        </li>
+        <li class="list-group-item">
+          類別
+          <ul class="list-group">
+            <li class="list-group-item">副類別</li>
+            <li class="list-group-item">副類別</li>
+            <li class="list-group-item">副類別</li>
+            <li class="list-group-item">副類別</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-9">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="jumbotron">
+            <h1><%= @ad[:title] %></h1>
+            <p><%= @ad[:content] %></p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button"><%= @ad[:action] %></a></p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <% @product.each_with_index do |p, index| %>
+          <div class="col-sm-3">
+            <div class="card">
+              <img class="card-img-top" src="https://art.pixilart.com/2a9bd9421c07695.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><%= "#{p[:name]}#{index}" %></h5>
+                <p class="card-text"><%= "#{p[:description]}#{index}" %></p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
