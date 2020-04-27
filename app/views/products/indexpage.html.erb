@@ -33,20 +33,44 @@
         </div>
       </div>
       <div class="row">
-        <% @product.each_with_index do |p, index| %>
+        <% @page_product.each do |p| %>
           <div class="col-sm-3">
             <div class="card">
-              <img class="card-img-top" src="https://art.pixilart.com/2a9bd9421c07695.png" alt="Card image cap">
+              <%= image_tag p[:image_url], class:"card-img-top", alt:"Card image cap"%>
               <div class="card-body">
-                <h5 class="card-title"><%= "#{p[:name]}#{index}" %></h5>
-                <p class="card-text"><%= "#{p[:description]}#{index}" %></p>
+                <h5 class="card-title"><%= p[:name] %></h5>
+                <p class="card-text"><%= p[:description] %></p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
             </div>
           </div>
         <% end %>
-
       </div>
+      <div class="row">
+        <div class="offset-4 mt-3">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item">
+                <%= link_to root_path(current_page: @first_page.to_s), class: "page-link" do %>
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                <% end %>
+              </li>
+              <% (@first_page..@last_page).each do |current_page| %>
+                <li class="page-item"><%= link_to current_page, root_path(current_page: current_page), class: "page-link" %></li>
+              <% end %>
+              <li class="page-item">
+                <%= link_to root_path(current_page: @last_page.to_s), class: "page-link" do %>
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only">Next</span>
+                <% end %>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
     </div>
   </div>
+</div>
 </div>
